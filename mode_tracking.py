@@ -3,6 +3,7 @@ import pyautogui
 from Tracking import GazeTracking
 import pandas as pd
 import threading
+import numpy as np
 
 # 사용자 해상도를 가져온다
 screen_width, screen_height = pyautogui.size()
@@ -42,7 +43,18 @@ def tracking():
     while True:
         _, frame = webcam.read()
         frame = cv2.flip(frame, 1) # 좌우반전
-        frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA) # 해상도를 높힌다
+
+        # 해상도를 높힌다 -> 일반적으로 INTER_AREA는 shrimp할 때 사용하므로 INTER_CUBIC으로 바꿨다.
+        frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
+        # 배수 Size지정
+        # frame = cv2.resize(frame, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+
+        # 프레임 사이즈 측정
+        rows, cols = frame.shape[:2]
+
+        # 변환 행렬, X축으로 10, Y축으로 20 이동
+        M = np.float32([[1, 0, 10], [0, 1, 20]])
+        frame = cv2.warpAffine(frame, M, (cols, rows))
 
         # GazeTracking에 분석하기 위해서 프레임을 토스함
         gaze.refresh(frame)
@@ -72,7 +84,7 @@ def tracking():
         cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
         cv2.putText(frame, text1, (90, 100), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
         cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
-        Cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
+        cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
 
         # 화면을 띄운다
         cv2.imshow("tracking", frame)
