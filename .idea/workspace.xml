@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f4d8ab8-a2c1-42a3-8dd7-aee94a636c4c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/Jueun.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/rSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/1_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/2_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/3_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/bed_down_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/bed_up_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/big_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/cold_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/ding_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/emergency_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/full_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/glasses_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/hot_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/hungry_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/light_off_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/light_on_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/look_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/mistake_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/out_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/small_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/water_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Audio/window_btn_audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Hongsam_capstone" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/calibration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/eye.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/gaze_tracking.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/pupil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/Tracking/trained_models/shape_predictor_68_face_landmarks.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/UI.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/eye_ratio.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/icon_rc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/image/gallery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/image/icon.qrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/image/my.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/image/setting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/menu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/mode_calibration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/mode_tracking.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hongsam/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1Ysh5aMzJmN3f3xHXKQx1KmZvnc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="calibration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Jueun" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tracking" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tracking/calibration.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Jueun" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/menu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Jueun" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.menu" />
+        <item itemvalue="Python.calibration" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f4d8ab8-a2c1-42a3-8dd7-aee94a636c4c" name="Default Changelist" comment="" />
+      <created>1583737027074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583737027074</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/Hongsam_capstone" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="145" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583903867360">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="145" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1583903867360" />
+    <state width="1500" height="258" key="GridCell.Tab.0.bottom" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.0.center" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.0.left" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.0.right" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.1.bottom" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.1.center" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.1.left" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state width="1500" height="258" key="GridCell.Tab.1.right" timestamp="1583904665819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1500" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583904665819" />
+    <state x="277" y="60" key="SettingsEditor" timestamp="1583906178616">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="60" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583906178616" />
+    <state x="465" y="242" key="com.intellij.ide.util.TipDialog" timestamp="1583906160892">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="242" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583906160892" />
+    <state x="407" y="36" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583737860148">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="36" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1583737860148" />
+  </component>
+</project>

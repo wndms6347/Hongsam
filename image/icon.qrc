@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="my">
+    <file>my.png</file>
+  </qresource>
+  <qresource prefix="setting">
+    <file>setting.png</file>
+  </qresource>
+  <qresource prefix="gallery">
+    <file>gallery.png</file>
+  </qresource>
+</RCC>
