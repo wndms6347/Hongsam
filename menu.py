@@ -28,7 +28,7 @@ class MyWindow(QMainWindow):
     def tracking_clicked(self):
         self.hide()
         return mode_tracking.tracking()
- #       self.hide()
+ #      self.hide()
 
 
 if __name__ == "__main__":

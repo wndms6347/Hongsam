@@ -42,7 +42,37 @@ def tracking():
     while True:
         _, frame = webcam.read()
         frame = cv2.flip(frame, 1) # 좌우반전
-        #frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
+        frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA) # 해상도를 높힌다
+
+        # GazeTracking에 분석하기 위해서 프레임을 토스함
+        gaze.refresh(frame)
+        frame = gaze.annotated_frame()
+
+        # Text 관리
+        text = ""
+        text1 = ""
+        if gaze.is_blinking():
+            text = "Blinking"
+        elif gaze.is_right():
+            text = "Looking right"
+        elif gaze.is_left():
+            text = "Looking left"
+        elif gaze.is_center():
+            text = "Looking center"
+        if gaze.is_up():
+            text1 = "Looking up"
+        elif gaze.is_down():
+            text1 = "Looking down"
+
+        # 좌, 우측 좌표를 가져온다
+        left_pupil = gaze.pupil_left_coords()
+        right_pupil = gaze.pupil_right_coords()
+
+        # frame에 텍스트를 붙힌다
+        cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+        cv2.putText(frame, text1, (90, 100), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+        cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
+        Cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
 
         # 화면을 띄운다
         cv2.imshow("tracking", frame)
@@ -51,6 +81,6 @@ def tracking():
         if cv2.waitKey(1) == 27:
             break
 
-
+# 만약 MAIN console로 켜진다면 tracking() 함수를 실행한다
 if __name__ == '__main__':
     tracking()
