@@ -18,25 +18,34 @@ def normalization(x, max_p, min_p):
 # pyautogui 설정
 pyautogui.FAILSAFE = False # 화면 밖을 나가거나 오류가 생겨도 계속 진행
 
+# gaze, webcam 할당
+gaze = GazeTracking()
+webcam = cv2.VideoCapture(0)
+
+
 # 마우스 이동 함수
 def move_mouse():
     global output
+
+    # 만약 동공을 찾았다면..
     if gaze.pupils_located:
         print(output)
         #pyautogui.moveTo(((screen_width* gaze.horizontal_ratio()) - 576) * 1.74, ((screen_height*gaze.vertical_ratio()) - 540) * 1.35,5)
         #pyautogui.moveTo(screen_width/2, screen_height * normalization(gaze.vertical_ratio(),output_eyeratio.loc[8,'v_ratio'],output_eyeratio.loc[4,'v_ratio']) )
-    pyautogui.moveTo(screen_width/2,screen_height/2)
-    print("err")
+    else:
+        pyautogui.moveTo(screen_width/2,screen_height/2)
+        print("err")
 
 
 # 트래킹을 실행한다.
 def tracking():
     while True:
-        _, frame = gaze.frame
+        _, frame = webcam.read()
+        frame = cv2.flip(frame, 1) # 좌우반전
+        #frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
 
-
-        if(frame is not None):
-            cv2.imshow("tracking", frame)
+        # 화면을 띄운다
+        cv2.imshow("tracking", frame)
 
         # ESC를 누르면 꺼진다.
         if cv2.waitKey(1) == 27:

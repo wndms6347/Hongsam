@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: base-private
+Version: 1.0.1
+Summary: Encode arbitrary bits in private-use codepoints.
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Morgan Wahl
+Author-email: morgan.wahl@gmail.com
+Requires-Python: >=3.4,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
