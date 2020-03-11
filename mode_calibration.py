@@ -1,15 +1,10 @@
-"""
-Demonstration of the GazeTracking library.
-Check the README.md for complete documentation.
-"""
-
 import threading
 import time
 import sys
 import cv2
 import numpy as np
 import pyautogui
-from gaze_tracking import GazeTracking
+from Tracking import GazeTracking
 from gtts import gTTS
 from playsound import playsound
 import pandas as pd
