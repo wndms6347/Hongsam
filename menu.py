@@ -20,19 +20,23 @@ class MyWindow(QMainWindow):
         btn_calibration = QPushButton("교정", self)
         btn_calibration.setGeometry(210, 10, 185, 280)
         btn_calibration.clicked.connect(self.calibration_clicked)
+        btn_calibration.clicked.connect(QCoreApplication.instance().quit)
 
     def calibration_clicked(self):
         self.hide()
-        mode_calibration.calibration()
+        return mode_calibration.calibration()
 
     def tracking_clicked(self):
         self.hide()
         return mode_tracking.tracking()
  #      self.hide()
 
+def main():
+    w = myWindow()
+    w.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
     myWindow.show()
-    app.exec_()
+    sys.exit(app.exec_())

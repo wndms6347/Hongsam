@@ -1,11 +1,9 @@
 <RCC>
-  <qresource prefix="my">
-    <file>my.png</file>
-  </qresource>
-  <qresource prefix="setting">
+  <qresource prefix="icon">
     <file>setting.png</file>
-  </qresource>
-  <qresource prefix="gallery">
+    <file>my.png</file>
     <file>gallery.png</file>
+    <file>eye_open.png</file>
+    <file>eye_close.png</file>
   </qresource>
 </RCC>
