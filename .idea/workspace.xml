@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f4d8ab8-a2c1-42a3-8dd7-aee94a636c4c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mode_tracking_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hongsam_capstone" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode_calibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/mode_calibration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mode_tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/mode_tracking.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Hongsam_capstone/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Hongsam_capstone/.idea/.name" beforeDir="false" />
@@ -83,40 +90,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Scripts/python.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="Jueun" sdk-home="C:\Users\iluto\Documents\GitHub\Hongsam\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
-        <option name="mySdkHome" value="C:\Users\iluto\Documents\GitHub\Hongsam\venv\Scripts\python.exe" />
+      <console-settings module-name="Jueun" is-module-sdk="true" working-directory="$PROJECT_DIR$">
+        <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="Jueun" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mode_tracking">
-    <configuration name="calibration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Jueun" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tracking" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tracking/calibration.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.mode_tracking_2">
     <configuration name="menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Jueun" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,12 +152,33 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\iluto\Documents\GitHub\Hongsam\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mode_tracking.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mode_tracking_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Jueun" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\iluto\Documents\GitHub\Hongsam\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mode_tracking_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -203,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mode_tracking_2" />
         <item itemvalue="Python.mode_tracking" />
         <item itemvalue="Python.menu" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.mode_calibration" />
-        <item itemvalue="Python.calibration" />
       </list>
     </recent_temporary>
   </component>
@@ -235,69 +242,77 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="76" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1583911715026" />
-    <state x="225" y="72" width="1089" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583913597654">
+    <state x="447" y="50" width="1089" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584085426936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="225" y="72" width="1089" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1583913597654" />
+    <state x="447" y="50" width="1089" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584085426936" />
     <state x="449" y="145" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583903867360">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="145" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1583903867360" />
-    <state x="491" y="31" key="#mode_tracking" timestamp="1583914359871">
+    <state x="491" y="31" key="#mode_tracking" timestamp="1584081543120">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="491" y="31" key="#mode_tracking/0.0.1536.824@0.0.1536.824" timestamp="1583914359871" />
+    <state x="491" y="31" key="#mode_tracking/0.0.1536.824@0.0.1536.824" timestamp="1584081543120" />
+    <state x="491" y="25" width="554" height="773" key="#mode_tracking_2" timestamp="1584356257229">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="491" y="25" width="554" height="773" key="#mode_tracking_2/0.0.1536.824@0.0.1536.824" timestamp="1584356257229" />
     <state x="781" y="185" key="EnvironmentVariablesDialog" timestamp="1583911773914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="781" y="185" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1583911773914" />
-    <state x="548" y="174" width="439" height="487" key="FileChooserDialogImpl" timestamp="1583913853970">
+    <state x="548" y="174" width="439" height="487" key="FileChooserDialogImpl" timestamp="1584084174211">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="174" width="439" height="487" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583913853970" />
-    <state width="1500" height="208" key="GridCell.Tab.0.bottom" timestamp="1583915019219">
+    <state x="548" y="174" width="439" height="487" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584084174211" />
+    <state width="726" height="79" key="GridCell.Tab.0.bottom" timestamp="1584359946863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583915019219" />
-    <state width="1500" height="208" key="GridCell.Tab.0.center" timestamp="1583915019219">
+    <state width="726" height="79" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584359946863" />
+    <state width="726" height="79" key="GridCell.Tab.0.center" timestamp="1584359946863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583915019219" />
-    <state width="1500" height="208" key="GridCell.Tab.0.left" timestamp="1583915019219">
+    <state width="726" height="79" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584359946863" />
+    <state width="726" height="79" key="GridCell.Tab.0.left" timestamp="1584359946863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583915019219" />
-    <state width="1500" height="208" key="GridCell.Tab.0.right" timestamp="1583915019219">
+    <state width="726" height="79" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584359946863" />
+    <state width="726" height="79" key="GridCell.Tab.0.right" timestamp="1584359946863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583915019219" />
-    <state width="1500" height="258" key="GridCell.Tab.1.bottom" timestamp="1583914369455">
+    <state width="726" height="79" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584359946863" />
+    <state width="456" height="260" key="GridCell.Tab.1.bottom" timestamp="1584090573491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583914369455" />
-    <state width="1500" height="258" key="GridCell.Tab.1.center" timestamp="1583914369455">
+    <state width="456" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584090573491" />
+    <state width="456" height="260" key="GridCell.Tab.1.center" timestamp="1584090573491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583914369455" />
-    <state width="1500" height="258" key="GridCell.Tab.1.left" timestamp="1583914369455">
+    <state width="456" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584090573491" />
+    <state width="456" height="260" key="GridCell.Tab.1.left" timestamp="1584090573491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583914369455" />
-    <state width="1500" height="258" key="GridCell.Tab.1.right" timestamp="1583914369455">
+    <state width="456" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584090573491" />
+    <state width="456" height="260" key="GridCell.Tab.1.right" timestamp="1584090573491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1500" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583914369455" />
-    <state x="555" y="66" key="SettingsEditor" timestamp="1583914221885">
+    <state width="456" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584090573491" />
+    <state x="343" y="42" key="SettingsEditor" timestamp="1584085386086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="555" y="66" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583914221885" />
-    <state x="465" y="242" key="com.intellij.ide.util.TipDialog" timestamp="1583913692254">
+    <state x="343" y="42" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584085386086" />
+    <state x="465" y="242" key="com.intellij.ide.util.TipDialog" timestamp="1584352923433">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="242" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583913692254" />
+    <state x="465" y="242" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584352923433" />
     <state x="407" y="36" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583737860148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="407" y="36" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1583737860148" />
+    <state x="0" y="0" width="851" height="702" key="dock-window-1" timestamp="1584352930211">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="0" width="851" height="702" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1584352930211" />
   </component>
 </project>
