@@ -31,10 +31,10 @@ def move_mouse():
     # 만약 동공을 찾았다면..
     if gaze.pupils_located:
         print(output)
-        #pyautogui.moveTo(((screen_width* gaze.horizontal_ratio()) - 576) * 1.74, ((screen_height*gaze.vertical_ratio()) - 540) * 1.35,5)
+        pyautogui.moveTo(((screen_width* gaze.horizontal_ratio()) - 576) * 1.74, ((screen_height*gaze.vertical_ratio()) - 540) * 1.35,5)
         #pyautogui.moveTo(screen_width/2, screen_height * normalization(gaze.vertical_ratio(),output_eyeratio.loc[8,'v_ratio'],output_eyeratio.loc[4,'v_ratio']) )
     else:
-        pyautogui.moveTo(screen_width/2,screen_height/2)
+        #pyautogui.moveTo(screen_width/2,screen_height/2)
         print("err")
 
 
