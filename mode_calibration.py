@@ -1,10 +1,15 @@
+"""
+Demonstration of the GazeTracking library.
+Check the README.md for complete documentation.
+"""
+
 import threading
 import time
 import sys
 import cv2
 import numpy as np
 import pyautogui
-from Tracking import GazeTracking
+from gaze_tracking import GazeTracking
 from gtts import gTTS
 from playsound import playsound
 import pandas as pd
@@ -19,7 +24,16 @@ count = 0
 timerRun = False
 initializing = False
 
-circle_radius = 20
+circle_radius = 40
+
+#circle 크기 변화를 위한 변수
+circle_radius_change = circle_radius
+circle_is_change = True
+circle_count = 3
+red_color = (0,0,255)
+green_color = (0,255,0)
+circle_color = red_color
+
 width = 800
 height = 600
 
@@ -90,6 +104,9 @@ def save_text(f_name):
 def start_timer():
     global count
     global nowOrder
+    global circle_radius
+    global circle_radius_change
+    global circle_color
 
     print(count)
     timer = threading.Timer(1, start_timer)
@@ -101,10 +118,12 @@ def start_timer():
         timer.cancel()
         return
 
-    play_narrator("숫자 나레이터", str(3 - ((count - 1) % 3)))
 
     if count % 3 is 0:
+        play_narrator("효과음", "ding")
         nowOrder += 1
+        circle_radius_change = circle_radius
+        circle_color = red_color
         mean_ratio(h_ratio, h_count, v_ratio, v_count)
         print('stop')
         timer.cancel()
@@ -114,34 +133,76 @@ def start_timer():
 
     timer.start()
 
+#원 줄어드는 함수
+def circle_decrease():
+    global circle_radius_change
+    global circle_is_change
+    global circle_count
+    global circle_color
+    if circle_radius_change < 18:
+        circle_color = green_color
+    elif circle_radius_change > 0 :
+        circle_radius_change -= 1
+
+# 원 줄어드는 속도 조정을 위한 함수 1
+def circle_change_flip():
+    global circle_is_change
+    if circle_is_change is True:
+        circle_is_change = False
+    else:
+        circle_is_change = True
+
+
+# 원 줄어드는 속도 조절을 위한 함수 2
+def circle_count_decrease():
+    global circle_count
+    if circle_count > 0:
+        circle_count -= 1
+
 
 def calibration():
 
     play = False
     look_play = False
     webCam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
     global h_ratio, h_count, v_ratio, v_count
 
     while True:
-        _, frame = webCam.read()
-        frame = cv2.flip(frame, 1)
-        frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
-        frame = frame[150:450, 200:600]
+        # _, frame = webCam.read()
+
+        frame = np.zeros((512, 512, 3), np.uint8)
         frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
 
+
+        _, camFrame = webCam.read()
+        camFrame = cv2.flip(camFrame, 1)
+        camFrame = cv2.resize(camFrame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
+        camFrame = camFrame[150:450, 200:600]
+        camFrame = cv2.resize(camFrame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
+
+
+        # 원 줄어들게 하기 위한 함수
+        # circle_change_flip()
+        #circle_count_decrease()
 
         if look_play == False:
+            # 하늘색 배경 + 글자
             cv2.rectangle(frame, (0,0), (800,600), (250,244,192), -1)
             text2 = "Look at the red point"
             cv2.putText(frame,text2,(90,300),cv2.FONT_HERSHEY_DUPLEX, 1.8, (147,58,31), 2)
         else:
             if nowOrder < 9:
-                frame = cv2.circle(frame, (position[nowOrder][0], position[nowOrder][1]), 20, red_color, -1)
+                circle_decrease()
+                frame = cv2.circle(frame, (position[nowOrder][0], position[nowOrder][1]), circle_radius_change, circle_color, -1)
 
         # We send this frame to GazeTracking to analyze it
         gaze.refresh(frame)
+        gaze.refresh(camFrame)
 
-        frame = gaze.annotated_frame()
+
+        camFrame = gaze.annotated_frame()
+
         text = ""
         text1 = ""
 
@@ -166,11 +227,11 @@ def calibration():
         right_pupil = gaze.pupil_right_coords()
 
         if nowOrder is 9:
-            cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
-            cv2.putText(frame, text1, (90, 100), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
-            cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9,
+            cv2.putText(camFrame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+            cv2.putText(camFrame, text1, (90, 100), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+            cv2.putText(camFrame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9,
                         (147, 58, 31), 1)
-            cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9,
+            cv2.putText(camFrame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9,
                         (147, 58, 31), 1)
             save_text(output_file)
             cv2.destroyAllWindows()
@@ -190,8 +251,19 @@ def calibration():
             v_count += 1
         '''###############################'''
 
+        # 전체 화면
+        # cv2.moveWindow("calibration", int(garo), 0)
+        cv2.namedWindow("calibration", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("calibration", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
+
+
         cv2.imshow("calibration", frame)
-        cv2.moveWindow("calibration", int(garo), 0)
+
+        # cv2.imshow("webcam", camFrame)
+
+
+
 
         if cv2.waitKey(1) == 27:
             break
@@ -201,7 +273,7 @@ def calibration():
             play_narrator("응시 나레이터", "look")
             start_timer()
             #save_text(output_file, cal_col, cal_row, gaze.horizontal_ratio())
-            play = True
+            play = True;
 
 if __name__ == '__main__':
     calibration()
