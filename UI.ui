@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1241</width>
-    <height>698</height>
+    <width>1316</width>
+    <height>648</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -16,13 +16,16 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="bed_up_btn">
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QPushButton" name="bed_btn">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>200</width>
-     <height>110</height>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -30,19 +33,19 @@
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>침대 위</string>
+    <string>침대</string>
    </property>
    <property name="autoDefault">
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="glasses_btn">
+  <widget class="QPushButton" name="water_btn">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>250</y>
-     <width>200</width>
-     <height>110</height>
+     <y>210</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -50,50 +53,16 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>안경</string>
+    <string>물</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="small_btn">
+  <widget class="QPushButton" name="light_btn">
    <property name="geometry">
     <rect>
-     <x>870</x>
-     <y>250</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>소변</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="big_btn">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>250</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>대변</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="light_off_btn">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
+     <x>590</x>
      <y>10</y>
-     <width>200</width>
-     <height>110</height>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -101,33 +70,55 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>소등</string>
+    <string>전등</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bed_down_btn">
+  <widget class="QPushButton" name="eye_btn">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>130</y>
-     <width>200</width>
-     <height>110</height>
+     <x>300</x>
+     <y>210</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>휴먼엑스포</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>침대 아래</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="image/icon.qrc">
+     <normaloff>:/icon/eye_open.png</normaloff>
+     <normalon>:/icon/eye_close.png</normalon>:/icon/eye_open.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="light_on_btn">
+  <widget class="QPushButton" name="eat_btn">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>300</x>
      <y>10</y>
-     <width>200</width>
-     <height>110</height>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -135,16 +126,16 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>점등</string>
+    <string>식사</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="mistake_btn">
+  <widget class="QPushButton" name="toilet_btn">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>370</y>
-     <width>200</width>
-     <height>110</height>
+     <x>590</x>
+     <y>210</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -152,16 +143,16 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>잘못보냈어요</string>
+    <string>화장실</string>
    </property>
   </widget>
   <widget class="QPushButton" name="window_btn">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>490</y>
-     <width>200</width>
-     <height>110</height>
+     <y>410</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -175,10 +166,10 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
   <widget class="QPushButton" name="out_btn">
    <property name="geometry">
     <rect>
-     <x>870</x>
-     <y>370</y>
-     <width>200</width>
-     <height>110</height>
+     <x>590</x>
+     <y>410</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -186,101 +177,16 @@ font: 20pt &quot;휴먼엑스포&quot;;</string>
 font: 20pt &quot;휴먼엑스포&quot;;</string>
    </property>
    <property name="text">
-    <string>나가고싶어요</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="cold_btn">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>490</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>추워요</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="water_btn">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>370</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>물</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="hot_btn">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>490</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>더워요</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="full_btn">
-   <property name="geometry">
-    <rect>
-     <x>870</x>
-     <y>490</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>배불러</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="hungry_btn">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>490</y>
-     <width>200</width>
-     <height>110</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-font: 20pt &quot;휴먼엑스포&quot;;</string>
-   </property>
-   <property name="text">
-    <string>배고파</string>
+    <string>외출</string>
    </property>
   </widget>
   <widget class="QPushButton" name="emergency_btn">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>370</y>
-     <width>411</width>
-     <height>110</height>
+     <x>300</x>
+     <y>410</y>
+     <width>281</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="font">
@@ -303,10 +209,10 @@ font: 25pt &quot;휴먼엑스포&quot;;</string>
   <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>130</y>
+     <x>880</x>
+     <y>350</y>
      <width>411</width>
-     <height>231</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -325,9 +231,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="cam_btn">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>637</y>
-     <width>141</width>
+     <x>1210</x>
+     <y>600</y>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
@@ -339,104 +245,11 @@ font: 9pt &quot;휴먼엑스포&quot;;</string>
     <string>CAM </string>
    </property>
   </widget>
-  <widget class="QPushButton" name="my_btn">
-   <property name="geometry">
-    <rect>
-     <x>1110</x>
-     <y>90</y>
-     <width>100</width>
-     <height>100</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="image/icon.qrc">
-     <normaloff>:/my/my.png</normaloff>:/my/my.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>90</width>
-     <height>100</height>
-    </size>
-   </property>
-   <property name="autoRepeat">
-    <bool>false</bool>
-   </property>
-   <property name="autoExclusive">
-    <bool>false</bool>
-   </property>
-   <property name="autoDefault">
-    <bool>false</bool>
-   </property>
-   <property name="default">
-    <bool>true</bool>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="setting_btn">
-   <property name="geometry">
-    <rect>
-     <x>1110</x>
-     <y>270</y>
-     <width>100</width>
-     <height>100</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="image/icon.qrc">
-     <normaloff>:/setting/setting.png</normaloff>:/setting/setting.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>90</width>
-     <height>100</height>
-    </size>
-   </property>
-   <property name="autoDefault">
-    <bool>false</bool>
-   </property>
-   <property name="default">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="gallery_btn">
-   <property name="geometry">
-    <rect>
-     <x>1110</x>
-     <y>450</y>
-     <width>100</width>
-     <height>100</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="image/icon.qrc">
-     <normaloff>:/gallery/gallery.png</normaloff>:/gallery/gallery.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>90</width>
-     <height>100</height>
-    </size>
-   </property>
-   <property name="default">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="clear_btn">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>130</y>
+     <x>1200</x>
+     <y>350</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -449,6 +262,323 @@ font: 9pt &quot;휴먼엑스포&quot;;</string>
     <string>삭제</string>
    </property>
   </widget>
+  <widget class="QWidget" name="eat_widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>861</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="hungry_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>배고파요</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="full_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>배불러요</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="light_widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>861</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="light_on_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>점등</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="light_off_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>소등</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="bed_widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>861</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="bed_up_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>올리기</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bed_down_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>내리기</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="window_widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>861</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="window_open_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>창문 열기</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="window_close_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>창문 닫기</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="toilet_widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>861</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="small_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>소변</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="big_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>391</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>휴먼엑스포</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 223, 255);</string>
+    </property>
+    <property name="text">
+     <string>대변</string>
+    </property>
+   </widget>
+  </widget>
+  <zorder>bed_btn</zorder>
+  <zorder>water_btn</zorder>
+  <zorder>light_btn</zorder>
+  <zorder>eye_btn</zorder>
+  <zorder>eat_btn</zorder>
+  <zorder>toilet_btn</zorder>
+  <zorder>window_btn</zorder>
+  <zorder>out_btn</zorder>
+  <zorder>emergency_btn</zorder>
+  <zorder>textEdit</zorder>
+  <zorder>cam_btn</zorder>
+  <zorder>clear_btn</zorder>
+  <zorder>light_widget</zorder>
+  <zorder>window_widget</zorder>
+  <zorder>toilet_widget</zorder>
+  <zorder>eat_widget</zorder>
+  <zorder>bed_widget</zorder>
  </widget>
  <resources>
   <include location="image/icon.qrc"/>

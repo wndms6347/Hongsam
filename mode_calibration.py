@@ -85,11 +85,6 @@ def save_text(f_name):
 
     df.to_csv(output_file)
 
-'''def read_text(text_name, num):
-    f = open(text_name, 'r')
-    string = f.read()
-    string_list = string.split(" ")
-    return string_list[num]'''
 
 # 타이머 함수
 def start_timer():
@@ -120,7 +115,7 @@ def start_timer():
     timer.start()
 
 
-def calibration():
+def calibration(friend_list, fc):
 
     play = False
     look_play = False
@@ -179,7 +174,7 @@ def calibration():
                         (147, 58, 31), 1)
             save_text(output_file)
             cv2.destroyAllWindows()
-            test.main()
+            test.main(friend_list, fc)
             break;
 
 

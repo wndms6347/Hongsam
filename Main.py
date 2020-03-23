@@ -97,7 +97,7 @@ class main(QWidget, form_class):
             test.main(self.friend_list, self.fc)
 
         elif now_text == 'Calibration':
-            mode_calibration.calibration()
+            mode_calibration.calibration(self.friend_list, self.fc)
 
         elif now_text == '검색':
             if not self.fc.fetchThreadInfo(self.lineEdit.text())[self.lineEdit.text()]:
