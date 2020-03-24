@@ -1,3 +1,9 @@
+"""
+    [목적]
+    프레임에서 눈을 찾고, 동공을 찾기위해 눈동자를 찾고
+    새로운 프레임으로 자릅니다.
+"""
+
 import math
 import numpy as np
 import cv2
@@ -8,13 +14,13 @@ class Eye(object):
     """
     This class creates a new frame to isolate the eye and
     initiates the pupil detection.
-    이 클래스는 얼굴에서 눈 부분을 분리하여 새로운 프레임으로 만들고
-    동공 감지를 하는 부분입니다.
+    이 클래스는 얼굴에서 눈 부분을 분리하기 위해 새로운 프레임으로 만들고
+    동공 감지를 시작합니다.
     """
     
     # 얼굴에서 좌, 우측 눈 좌표 지점
-    LEFT_EYE_POINTS =  [42, 43, 44, 45, 46, 47]
-    RIGHT_EYE_POINTS = [36, 37, 38, 39, 40, 41]    #eye landmarks
+    RIGHT_EYE_POINTS = [42, 43, 44, 45, 46, 47]
+    LEFT_EYE_POINTS = [36, 37, 38, 39, 40, 41]    #eye landmarks
     
     # 초기화
     def __init__(self, original_frame, landmarks, side, calibration):
@@ -39,8 +45,9 @@ class Eye(object):
         return (x, y)
 
     def _isolate(self, frame, landmarks, points):
-        """Isolate an eye, to have a frame without other part of the face.
-            얼굴의 다른 부분 없이 눈을 분리시켜 새로운 프레임으로 만듭니다.
+        """
+        Isolate an eye, to have a frame without other part of the face.
+        얼굴의 다른 부분 없이 눈을 분리시켜 새로운 프레임으로 만듭니다.
 
         Arguments:
             frame (numpy.ndarray): Frame containing the face
@@ -64,6 +71,7 @@ class Eye(object):
         eye = cv2.bitwise_not(black_frame, frame.copy(), mask=mask)
 
         # Cropping on the eye
+        # 정확히 눈의 사이즈 만큼의 x, y값을 찾아서 분리합니다.
         margin = 5
         min_x = np.min(region[:, 0]) - margin
         max_x = np.max(region[:, 0]) + margin
@@ -77,18 +85,25 @@ class Eye(object):
         self.center = (width / 2, height / 2)
 
     def _blinking_ratio(self, landmarks, points):
-        """Calculates a ratio that can indicate whether an eye is closed or not.
+        """
+        Calculates a ratio that can indicate whether an eye is closed or not.
         It's the division of the width of the eye, by its height.
+        눈이 감겨있는지 안감겨있는지 나타낼 수 있는 비율을 계산합니다.
+        눈의 너비를 높이로 나눔으로써 가능합니다.
 
         Arguments:
             landmarks (dlib.full_object_detection): Facial landmarks for the face region
+            얼굴 특징점
             points (list): Points of an eye (from the 68 Multi-PIE landmarks)
+            눈의 좌표점들
 
         Returns:
             The computed ratio
+            계산된 비율
         """
-        right = (landmarks.part(points[0]).x, landmarks.part(points[0]).y)
-        left = (landmarks.part(points[3]).x, landmarks.part(points[3]).y)
+
+        left = (landmarks.part(points[0]).x, landmarks.part(points[0]).y)
+        right = (landmarks.part(points[3]).x, landmarks.part(points[3]).y)
         top = self._middle_point(landmarks.part(points[1]), landmarks.part(points[2]))
         bottom = self._middle_point(landmarks.part(points[5]), landmarks.part(points[4]))
 
@@ -103,14 +118,21 @@ class Eye(object):
         return ratio
 
     def _analyze(self, original_frame, landmarks, side, calibration):
-        """Detects and isolates the eye in a new frame, sends data to the calibration
+        """
+        Detects and isolates the eye in a new frame, sends data to the calibration
         and initializes Pupil object.
+        새로운 프레임에서 눈을 탐지하고 분리시킨다.
+        분리된 눈을 calibration에 데이터를 보내고 동공 객체를 초기화 시킨다.
 
         Arguments:
             original_frame (numpy.ndarray): Frame passed by the user
+            웹캠이미지
             landmarks (dlib.full_object_detection): Facial landmarks for the face region
+            얼굴 특징점
             side: Indicates whether it's the left eye (0) or the right eye (1)
+            왼쪽인지 오른쪽인지 표시
             calibration (calibration.Calibration): Manages the binarization threshold value
+            임계값을 관리하는 캘리브레이션
         """
         if side == 0:
             points = self.LEFT_EYE_POINTS####
@@ -126,4 +148,6 @@ class Eye(object):
             calibration.evaluate(self.frame, side)
 
         threshold = calibration.threshold(side)
+
         self.pupil = Pupil(self.frame, threshold)
+        cv2.imshow("eye", self.frame)

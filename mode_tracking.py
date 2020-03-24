@@ -37,7 +37,6 @@ def move_mouse():
         #pyautogui.moveTo(screen_width/2,screen_height/2)
         print("err")
 
-
 # 트래킹을 실행한다.
 def tracking():
     while True:
