@@ -60,7 +60,7 @@ def detect(gray, frame):
         face_color = frame[f.top():f.bottom(), f.left():f.right()]  # 컬러
 
         # face_color 영상을 두배로 늘린다.
-        color_image = cv2.resize(face_color, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
+        color_image = cv2.resize(face_color, None, fx=3, fy=3, interpolation=cv2.INTER_AREA)
         gaze2.refresh(color_image)
         color_image = gaze2.annotated_frame()
         cv2.imshow("color_image", color_image)
@@ -154,6 +154,7 @@ def mouseCnt(gaze):
         re_width = gaze.eye_right.width
         re_height = gaze.eye_right.height
         re_x, re_y = gaze.pupil_right_coords()
+
         """
         (screen_width or screen_height) : Y = (re_width or re_height) : X
         * 조건 : screen_width = 변하지 않는 cosnt_var
