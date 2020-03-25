@@ -181,6 +181,6 @@ def main():
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     w = Exam()
-    w.show()
+    w.showMaximized()
     sys.exit(app.exec_())
     cv2.destroyAllWindows()
