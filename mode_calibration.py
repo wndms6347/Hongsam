@@ -165,6 +165,7 @@ def calibration():
         left_pupil = gaze.pupil_left_coords()
         right_pupil = gaze.pupil_right_coords()
 
+
         if nowOrder is 9:
             cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
             cv2.putText(frame, text1, (90, 100), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
