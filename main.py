@@ -15,11 +15,14 @@ import pyautogui  # 마우스 제어용
 
 # GazeTracking, dlib.face_detector 객체 불러오기
 gaze = GazeTracking()
-gaze2 = GazeTracking()
+gaze2 = GazeTracking()  # 실험용
 face_detector = dlib.get_frontal_face_detector()
 
 # 모니터의 사이즈
 screenWidth, screenHeight = pyautogui.size()
+
+# 웹캠 실시간 받아오기
+video_capture = cv2.VideoCapture(0)
 
 # 데이터 등록
 predictor = dlib.shape_predictor('./data/shape_predictor_68_face_landmarks.dat')  # 얼굴 랜드마크
@@ -58,9 +61,11 @@ def detect(gray, frame):
 
         # face_color 영상을 두배로 늘린다.
         color_image = cv2.resize(face_color, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
-        # gaze2.refresh(color_image)
-        # color_image = gaze2.annotated_frame()
+        gaze2.refresh(color_image)
+        color_image = gaze2.annotated_frame()
         cv2.imshow("color_image", color_image)
+        cv2.moveWindow("color_image", 0, 0)
+        mouseCnt(gaze2)
     except:
         cv2.destroyWindow("color_image")
         pass
@@ -120,19 +125,79 @@ def detect(gray, frame):
     # return frame
 
 
-# 웹캠 실시간 받아오기
-video_capture = cv2.VideoCapture(0)
+def save_location(file_name, data):
+    f = open(file_name, 'a')
+    f.write(str(data) + " ")
+    f.close()
+
+
+def read_location(file_name):
+    f = open(file_name, 'r')
+    string = f.read()
+    string_list = string.split(" ")
+    print(string_list)
+    return string_list
+
+
+max_num = 0
+min_num = screenWidth
+sleep = 0
+
+
+def mouseCnt(gaze):
+    global max_num, min_num, sleep, screenWidth, screenHeight # 전역변수
+    
+    #####################################
+    #      2020-03-25, 동공 크기비       #
+    #####################################
+    if gaze.pupils_located:  # 만약 동공 탐지가 되었으면..
+        re_width = gaze.eye_right.width
+        re_height = gaze.eye_right.height
+        re_x, re_y = gaze.pupil_right_coords()
+        """
+        (screen_width or screen_height) : Y = (re_width or re_height) : X
+        * 조건 : screen_width = 변하지 않는 cosnt_var
+        """
+        re_x -= gaze.eye_right.left[0]
+        re_y -= gaze.eye_right.top[1]
+        # re_eye = read_location("./data/right_eye_x.txt") # right_eye = arr
+        # re_width = max(re_eye) - min(re_eye)
+        m_x = screenWidth * re_x / re_width
+        m_y = screenHeight * re_y / re_height
+
+        if max_num < m_x:
+            max_num = m_x
+
+        if min_num > m_x:
+            min_num = m_x
+
+        print("(" + str(m_x) + "," + str(m_y) + ") ---- max : " + str(max_num) + ", min : " + str(min_num))
+        pyautogui.moveTo(m_x, m_y)
+
+        if cv2.waitKey(1) & 0xFF == ord('x'):   # 'x' 를 누르면 정지
+            sleep = 1
+
+        if cv2.waitKey(1) & 0xFF == ord('s'):   # 's' 를 누르면 세이브
+            save_location("./data/right_eye_x.txt", re_x)
+            read_location("./data/right_eye_x.txt")
+
 
 while True:
+    if sleep is 1:
+        while True:
+            if cv2.waitKey(1) & 0xFF == ord('x'):
+                sleep = 0
+                break
+
     # 웹캠 이미지를 프레임으로 자르고 좌우 반전을 한다.
     _, frame = video_capture.read()
     frame = cv2.flip(frame, 1)  # 이미지 좌우 반전
 
-    # gaze 객체의 프레임을 갱신한다.
-    gaze.refresh(frame)
-
-    # 동공에 빨간 점 표시를 한다.
-    gazeframe = gaze.annotated_frame()
+    # # gaze 객체의 프레임을 갱신한다.
+    # gaze.refresh(frame)
+    #
+    # # 동공에 빨간 점 표시를 한다.
+    # gaze_frame = gaze.annotated_frame()
 
     # 프레임을 그레이스케일로 변환..
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -140,14 +205,9 @@ while True:
     # 얼굴과 눈을 찾기위한 판별
     detect(gray_frame, frame)
 
-    # 찾은 이미지를 보여준다.
-    cv2.imshow("gazeframe", gazeframe)
-    cv2.moveWindow("gazeframe", 0, 0)
-
-    # if gaze.pupils_located:
-    #     left_loc = gaze.pupil_left_coords()
-    #     if pyautogui.onScreen(left_loc[0], left_loc[1]):
-    #         pyautogui.moveTo(left_loc[0], left_loc[1])
+    # # 찾은 이미지를 보여준다.
+    # cv2.imshow("gaze_frame", gaze_frame)
+    # cv2.moveWindow("gaze_frame", 0, 0)
 
     # q를 누르면 종료한다.
     if cv2.waitKey(1) & 0xFF == ord('q'):
