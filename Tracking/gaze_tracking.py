@@ -16,12 +16,14 @@ LEFT_EYE_POINTS = list(range(42, 48))
 MOUTH_OUTLINE_POINTS = list(range(48, 61))
 MOUTH_INNER_POINTS = list(range(61, 68))
 
+
 class GazeTracking(object):
     """
     This class tracks the user's gaze.
     It provides useful information like the position of the eyes
     and pupils and allows to know if the eyes are open or closed
     """
+
     def __init__(self):
         self.frame = None
         self.eye_left = None
@@ -35,8 +37,9 @@ class GazeTracking(object):
         # _predictor is used to get facial landmarks of a given face
         # 아래의 변수는 주어진 얼굴의 특징점을 얻기위해 사용한다.
         cwd = os.path.abspath(os.path.dirname(__file__))
-        model_path = os.path.abspath(os.path.join(cwd, "trained_models/shape_predictor_68_face_landmarks.dat")) # 특징점을 찾기위한 데이터
-        self._predictor = dlib.shape_predictor(model_path) # _predictor에게 특징점 모델을 갖게한다.
+        model_path = os.path.abspath(
+            os.path.join(cwd, "trained_models/shape_predictor_68_face_landmarks.dat"))  # 특징점을 찾기위한 데이터
+        self._predictor = dlib.shape_predictor(model_path)  # _predictor에게 특징점 모델을 갖게한다.
 
     @property
     def pupils_located(self):
@@ -74,7 +77,6 @@ class GazeTracking(object):
         self.frame = frame
         self._analyze()
 
-
     def pupil_right_coords(self):
         """Returns the coordinates of the left pupil"""
         if self.pupils_located:
@@ -109,7 +111,43 @@ class GazeTracking(object):
             pupil_right = self.eye_right.pupil.y / (self.eye_right.center[1] * 2 - 10)
             return (pupil_left + pupil_right) / 2
 
-    def is_left(self):
+    def is_1(self):
+        if self.pupils_located:
+            return self.horizontal_ratio() <= 0.35 and self.vertical_ratio() <= 0.45
+
+    def is_2(self):
+        if self.pupils_located:
+            return 0.35 < self.horizontal_ratio() < 0.65 and self.vertical_ratio() <= 0.45
+
+    def is_3(self):
+        if self.pupils_located:
+            return 0.65 <= self.horizontal_ratio() and self.vertical_ratio() <= 0.45
+
+    def is_4(self):
+        if self.pupils_located:
+            return self.horizontal_ratio() <= 0.35 and 0.45 < self.vertical_ratio() < 0.75
+
+    def is_5(self):
+        if self.pupils_located:
+            return 0.35 < self.horizontal_ratio() < 0.65 and 0.45 < self.vertical_ratio() < 0.75
+
+    def is_6(self):
+        if self.pupils_located:
+            return 0.65 <= self.horizontal_ratio() and 0.45 < self.vertical_ratio() < 0.75
+
+    def is_7(self):
+        if self.pupils_located:
+            return self.horizontal_ratio() <= 0.35 and 0.75 <= self.vertical_ratio()
+
+    def is_8(self):
+        if self.pupils_located:
+            return 0.35 < self.horizontal_ratio() < 0.65 and 0.75 <= self.vertical_ratio()
+
+    def is_9(self):
+        if self.pupils_located:
+            return 0.65 <= self.horizontal_ratio() and 0.75 <= self.vertical_ratio()
+
+    '''def is_left(self):
         """
         Returns true if the user is looking to the right
         오른쪽을 보면 True를 반환합니다.
@@ -141,7 +179,7 @@ class GazeTracking(object):
     def is_down(self):
         """아래를 보면 True를 반환합니다."""
         if self.pupils_located:
-            return self.vertical_ratio() >= 0.75
+            return self.vertical_ratio() >= 0.75'''
 
     def is_blinking(self):
         """

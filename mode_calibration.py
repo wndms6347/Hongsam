@@ -145,7 +145,7 @@ def calibration():
         text = ""
         text1 = ""
 
-        if gaze.is_blinking():
+        '''if gaze.is_blinking():
             text = "Blinking"
         elif gaze.is_right():
             text = "Looking right"
@@ -157,7 +157,7 @@ def calibration():
         if gaze.is_up():
             text1 = "Looking up"
         elif gaze.is_down():
-            text1 = "Looking down"
+            text1 = "Looking down"'''
 
 
         look_play = True
