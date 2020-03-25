@@ -9,6 +9,8 @@ import sys
 import cv2
 import numpy as np
 import pyautogui
+
+import mode_calibration_2
 from gaze_tracking import GazeTracking
 from gtts import gTTS
 from playsound import playsound
@@ -162,9 +164,11 @@ def circle_count_decrease():
 
 def calibration():
 
+
     play = False
     look_play = False
     webCam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
 
     global h_ratio, h_count, v_ratio, v_count
 
@@ -173,7 +177,6 @@ def calibration():
 
         frame = np.zeros((512, 512, 3), np.uint8)
         frame = cv2.resize(frame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
-
 
         _, camFrame = webCam.read()
         camFrame = cv2.flip(camFrame, 1)
@@ -255,9 +258,6 @@ def calibration():
         # cv2.moveWindow("calibration", int(garo), 0)
         cv2.namedWindow("calibration", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("calibration", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-
-
-
         cv2.imshow("calibration", frame)
 
         # cv2.imshow("webcam", camFrame)

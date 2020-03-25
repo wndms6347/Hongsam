@@ -8,13 +8,15 @@ import mode_calibration
 import pyautogui
 import cv2
 
+
 screen_width, screen_height = pyautogui.size()
 
 
-class widget1(QWidget):
+class widget_1(QWidget):
 
     def __init__(self):
         QWidget.__init__(self)
+        self.setWindowTitle("Calibration_ready")
         # 다음 버튼
         btn_next = QPushButton("다음", self)
         btn_next.setGeometry(900, 890, 200, 100)  # x, y, 버튼 가로, 버튼 세로
@@ -57,13 +59,14 @@ class widget1(QWidget):
         textLabel2.move(400, 500)
         textLabel2.setStyleSheet("font: 30pt Comic Sans MS")
 
+        self.w = None
+
     def next_clicked(self):
         self.close()
         return mode_calibration.calibration()
 
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    form = widget1()
-    form.showMaximized()
+    form = widget_1()
+    form.showFullScreen()
     sys.exit(app.exec_())

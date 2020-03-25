@@ -19,12 +19,10 @@ gaze = GazeTracking()
 
 
 
-class MyWindow(QMainWindow):
+class widget_0(QWidget):
 
     def __init__(self):
-        super().__init__()
-        self.cw = QWidget(self)
-        self.setCentralWidget(self.cw)
+        QWidget.__init__(self)
         self.setWindowTitle("Calibration_Start")
 
         # 다음 버튼
@@ -68,7 +66,6 @@ class MyWindow(QMainWindow):
         self.frame.setScaledContents(True)
 
         self.start()
-        self.show()
 
     def start(self):
         self.timer = QTimer()
@@ -92,13 +89,16 @@ class MyWindow(QMainWindow):
 
     def next_clicked(self):
         self.close()
-        self.w = mode_calibration_2.widget1()
-        self.w.showMaximized()
+        self.timer.stop()
+        self.cpt.release()
+        self.w = mode_calibration_2.widget_1()
+        self.w.showFullScreen()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    myWindow = MyWindow()
-    myWindow.showMaximized()
+    myWindow = widget_0()
+    myWindow.showFullScreen()
     sys.exit(app.exec_())
 
 
