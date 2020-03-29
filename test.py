@@ -7,8 +7,9 @@ from playsound import playsound
 from gtts import gTTS
 
 form_class = uic.loadUiType('Ui.ui')[0]
-cam = True
-eye = True
+cam = True      #캠 on/off
+eye = True      #시선 on/off
+
 
 class Exam(QWidget, form_class):
 
@@ -18,12 +19,15 @@ class Exam(QWidget, form_class):
         self.setWindowTitle("tracking")
         self.initUI()
 
+        # 모든 위젯 숨기기
         self.bed_widget.hide()
         self.eat_widget.hide()
         self.light_widget.hide()
         self.toilet_widget.hide()
         self.window_widget.hide()
+        self.temperature_widget.hide()
 
+        #mp3파일 생성
         '''self.save_narrator("창문 닫아주세요", "window_close_btn")
         self.save_narrator("침대 올려주세요", "bed_up_btn")
         self.save_narrator("침대 내려주세요", "bed_down_btn")
@@ -31,7 +35,7 @@ class Exam(QWidget, form_class):
         self.save_narrator("잘 못 보냈어요", "mistake_btn")
         self.save_narrator("창문 열어주세요", "window_open_btn")
         self.save_narrator("불 켜주세요", "light_on_btn")
-        self.save_narrator("불 꺼주세요", "ligth_off_btn")
+        self.save_narrator("불 꺼주세요", "light_off_btn")
         self.save_narrator("추워요", "cold_btn")
         self.save_narrator("더워요", "hot_btn")
         self.save_narrator("대변 하고싶어요", "big_btn")
@@ -40,34 +44,18 @@ class Exam(QWidget, form_class):
         self.save_narrator("나가고 싶어요", "out_btn")
         self.save_narrator("배고파요", "hungry_btn")
         self.save_narrator("배불러요", "full_btn")
-        self.save_narrator("비상호출", "emergency_btn")'''
+        self.save_narrator("비상호출", "emergency_btn")
+        self.save_narrator("자세가 불편해요", "pose_btn")'''
 
-        '''self.cam_btn.clicked.connect(self.cam_clicked)
-        self.clear_btn.clicked.connect(self.btn_clear)
-        self.bed_up_btn.clicked.connect(lambda state, button = self.bed_up_btn : self.btn_clicked(state, button))
-        self.bed_down_btn.clicked.connect(lambda state, button = self.bed_down_btn : self.btn_clicked(state, button))
-        self.glasses_btn.clicked.connect(lambda state, button = self.glasses_btn : self.btn_clicked(state, button))
-        self.mistake_btn.clicked.connect(lambda state, button = self.mistake_btn : self.btn_clicked(state, button))
-        self.window_btn.clicked.connect(lambda state, button = self.window_btn : self.btn_clicked(state, button))
-        self.light_on_btn.clicked.connect(lambda state, button = self.light_on_btn : self.btn_clicked(state, button))
-        self.light_off_btn.clicked.connect(lambda state, button = self.light_off_btn : self.btn_clicked(state, button))
-        self.emergency_btn.clicked.connect(lambda state, button = self.emergency_btn : self.btn_clicked(state, button))
-        self.cold_btn.clicked.connect(lambda state, button = self.cold_btn : self.btn_clicked(state, button))
-        self.hot_btn.clicked.connect(lambda state, button = self.hot_btn : self.btn_clicked(state, button))
-        self.big_btn.clicked.connect(lambda state, button = self.big_btn : self.btn_clicked(state, button))
-        self.small_btn.clicked.connect(lambda state, button = self.small_btn : self.btn_clicked(state, button))
-        self.water_btn.clicked.connect(lambda state, button = self.water_btn : self.btn_clicked(state, button))
-        self.out_btn.clicked.connect(lambda state, button = self.out_btn : self.btn_clicked(state, button))
-        self.hungry_btn.clicked.connect(lambda state, button = self.hungry_btn : self.btn_clicked(state, button))
-        self.full_btn.clicked.connect(lambda state, button = self.full_btn : self.btn_clicked(state, button))'''
-
+        #버튼작동
         self.cam_btn.clicked.connect(self.cam_clicked)
         self.clear_btn.clicked.connect(self.btn_clear)
         self.eye_btn.clicked.connect(self.eye_clicked)
         self.bed_up_btn.clicked.connect(lambda state, button=self.bed_up_btn: self.btn_clicked(state, button))
         self.bed_down_btn.clicked.connect(lambda state, button=self.bed_down_btn: self.btn_clicked(state, button))
         self.window_open_btn.clicked.connect(lambda state, button=self.window_open_btn: self.btn_clicked(state, button))
-        self.window_close_btn.clicked.connect(lambda state, button=self.window_close_btn: self.btn_clicked(state, button))
+        self.window_close_btn.clicked.connect(
+            lambda state, button=self.window_close_btn: self.btn_clicked(state, button))
         self.light_on_btn.clicked.connect(lambda state, button=self.light_on_btn: self.btn_clicked(state, button))
         self.light_off_btn.clicked.connect(lambda state, button=self.light_off_btn: self.btn_clicked(state, button))
         self.emergency_btn.clicked.connect(lambda state, button=self.emergency_btn: self.btn_clicked(state, button))
@@ -77,12 +65,29 @@ class Exam(QWidget, form_class):
         self.out_btn.clicked.connect(lambda state, button=self.out_btn: self.btn_clicked(state, button))
         self.hungry_btn.clicked.connect(lambda state, button=self.hungry_btn: self.btn_clicked(state, button))
         self.full_btn.clicked.connect(lambda state, button=self.full_btn: self.btn_clicked(state, button))
+        self.cold_btn.clicked.connect(lambda state, button=self.cold_btn: self.btn_clicked(state, button))
+        self.hot_btn.clicked.connect(lambda state, button=self.hot_btn: self.btn_clicked(state, button))
+        self.pose_btn.clicked.connect(lambda state, button=self.pose_btn: self.btn_clicked(state, button))
 
+        #백 버튼
+        self.eat_back_btn.clicked.connect(lambda state, button=self.eat_back_btn: self.back_btn_clicked(state, button))
+        self.bed_back_btn.clicked.connect(lambda state, button=self.bed_back_btn: self.back_btn_clicked(state, button))
+        self.light_back_btn.clicked.connect(
+            lambda state, button=self.light_back_btn: self.back_btn_clicked(state, button))
+        self.toilet_back_btn.clicked.connect(
+            lambda state, button=self.toilet_back_btn: self.back_btn_clicked(state, button))
+        self.window_back_btn.clicked.connect(
+            lambda state, button=self.window_back_btn: self.back_btn_clicked(state, button))
+        self.temperature_back_btn.clicked.connect(
+            lambda state, button=self.temperature_back_btn: self.back_btn_clicked(state, button))
+
+        #위젯 열기
         self.bed_btn.clicked.connect(lambda state, button=self.bed_btn: self.open_widget(state, button))
         self.eat_btn.clicked.connect(lambda state, button=self.eat_btn: self.open_widget(state, button))
         self.light_btn.clicked.connect(lambda state, button=self.light_btn: self.open_widget(state, button))
         self.toilet_btn.clicked.connect(lambda state, button=self.toilet_btn: self.open_widget(state, button))
         self.window_btn.clicked.connect(lambda state, button=self.window_btn: self.open_widget(state, button))
+        self.temperature_btn.clicked.connect(lambda state, button=self.temperature_btn: self.open_widget(state, button))
 
     def eye_clicked(self):
         global eye
@@ -94,36 +99,58 @@ class Exam(QWidget, form_class):
             print(eye)
 
     def open_widget(self, state, button):
-        if button.objectName() == "bed_btn":
-            self.bed_widget.show()
-        elif button.objectName() == "eat_btn":
-            self.eat_widget.show()
-        elif button.objectName() == "light_btn":
-            self.light_widget.show()
-        elif button.objectName() == "toilet_btn":
-            self.toilet_widget.show()
-        elif button.objectName() == "window_btn":
-            self.window_widget.show()
+        if eye:
+            if button.objectName() == "bed_btn":
+                self.bed_widget.show()
+            elif button.objectName() == "eat_btn":
+                self.eat_widget.show()
+            elif button.objectName() == "light_btn":
+                self.light_widget.show()
+            elif button.objectName() == "toilet_btn":
+                self.toilet_widget.show()
+            elif button.objectName() == "window_btn":
+                self.window_widget.show()
+            elif button.objectName() == "temperature_btn":
+                self.temperature_widget.show()
 
-    def btn_clicked(self, state, button):
-        exist_line_text = self.textEdit.toPlainText()
-        now_text = button.text()
+    def back_btn_clicked(self, state, button):
         now_button = button.objectName()
 
-        print(now_text)
-        self.textEdit.setText(exist_line_text + now_text + "\n")
-        self.play_narrator(button)
-
-        if now_button == "bed_up_btn" or now_button == "bed_down_btn":
+        if now_button == "bed_back_btn":
             self.bed_widget.hide()
-        elif now_button == "full_btn" or now_button == "hungry_btn":
+        elif now_button == "eat_back_btn":
             self.eat_widget.hide()
-        elif now_button == "light_on_btn" or now_button == "light_off_btn":
+        elif now_button == "light_back_btn":
             self.light_widget.hide()
-        elif now_button == "big_btn" or now_button == "small_btn":
+        elif now_button == "toilet_back_btn":
             self.toilet_widget.hide()
-        elif now_button == "window_open_btn" or now_button == "window_close_btn":
+        elif now_button == "window_back_btn":
             self.window_widget.hide()
+        elif now_button == "temperature_back_btn":
+            self.temperature_widget.hide()
+
+    def btn_clicked(self, state, button):
+        if eye:
+            exist_line_text = self.textEdit.toPlainText()
+            now_text = button.text()
+            now_button = button.objectName()
+
+            print(now_text)
+            self.textEdit.setText(exist_line_text + now_text + "\n")
+            self.play_narrator(button)
+
+            if now_button == "bed_up_btn" or now_button == "bed_down_btn":
+                self.bed_widget.hide()
+            elif now_button == "full_btn" or now_button == "hungry_btn":
+                self.eat_widget.hide()
+            elif now_button == "light_on_btn" or now_button == "light_off_btn":
+                self.light_widget.hide()
+            elif now_button == "big_btn" or now_button == "small_btn":
+                self.toilet_widget.hide()
+            elif now_button == "window_open_btn" or now_button == "window_close_btn":
+                self.window_widget.hide()
+            elif now_button == "cold_btn" or now_button == "hot_btn":
+                self.temperature_widget.hide()
 
     def btn_clear(self):
         self.textEdit.clear()
@@ -142,7 +169,7 @@ class Exam(QWidget, form_class):
         self.fps = 24
 
         self.frame = QLabel(self)
-        self.frame.setGeometry(880, 10, 411, 331)
+        self.frame.setGeometry(1380, 17, 448, 326)
         self.frame.setScaledContents(True)
 
         self.start()
@@ -175,7 +202,7 @@ class Exam(QWidget, form_class):
 
 def main():
     w = Exam()
-    w.show()
+    w.Maximumshow()
 
 
 if __name__ == '__main__':
