@@ -4,7 +4,7 @@ import cv2
 import dlib
 from .eye import Eye
 from .calibration import Calibration
-import threading
+
 
 class GazeTracking(object):
     """
@@ -12,6 +12,12 @@ class GazeTracking(object):
     It provides useful information like the position of the eyes
     and pupils and allows to know if the eyes are open or closed
     """
+
+    limit_up = 0.45
+    limit_down = 0.75
+    limit_left = 0.35
+    limit_right = 0.65
+
     def __init__(self):
         self.frame = None
         self.eye_left = None
@@ -42,6 +48,7 @@ class GazeTracking(object):
         """Detects the face and initialize Eye objects"""
         frame = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
         faces = self._face_detector(frame)
+
         try:
             landmarks = self._predictor(frame, faces[0])
             self.eye_left = Eye(frame, landmarks, 0, self.calibration)
@@ -53,11 +60,29 @@ class GazeTracking(object):
 
     def refresh(self, frame):
         """Refreshes the frame and analyzes it.
+
         Arguments:
             frame (numpy.ndarray): The frame to analyze
         """
         self.frame = frame
         self._analyze()
+
+    def change_limit(self, sensitibity):
+        if sensitibity is 0:
+            self.limit_down = 0.65
+            self.limit_up = 0.55
+            self.limit_left = 0.45
+            self.limit_right = 0.55
+        elif sensitibity is 1:
+            self.limit_down = 0.75
+            self.limit_up = 0.45
+            self.limit_left = 0.35
+            self.limit_right = 0.65
+        elif sensitibity is 2:
+            self.limit_down = 0.85
+            self.limit_up = 0.35
+            self.limit_left = 0.25
+            self.limit_right = 0.75
 
     def pupil_right_coords(self):
         """Returns the coordinates of the left pupil"""
@@ -96,12 +121,12 @@ class GazeTracking(object):
     def is_left(self):
         """Returns true if the user is looking to the right"""
         if self.pupils_located:
-            return self.horizontal_ratio() <= 0.35
+            return self.horizontal_ratio() <= self.limit_left
 
     def is_right(self):
         """Returns true if the user is looking to the left"""
         if self.pupils_located:
-            return self.horizontal_ratio() >= 0.65
+            return self.horizontal_ratio() >= self.limit_right
 
     def is_center(self):
         """Returns true if the user is looking to the center"""
@@ -110,11 +135,11 @@ class GazeTracking(object):
 
     def is_up(self):
         if self.pupils_located:
-            return self.vertical_ratio() <= 0.45
+            return self.vertical_ratio() <= self.limit_up
 
     def is_down(self):
         if self.pupils_located:
-            return self.vertical_ratio() >= 0.75
+            return self.vertical_ratio() >= self.limit_down
 
     def is_blinking(self):
         """Returns true if the user closes his eyes"""

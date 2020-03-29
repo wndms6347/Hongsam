@@ -6,7 +6,7 @@ import mode_calibration
 import pyautogui
 import cv2
 
-import mode_calibration_1
+import mode_calibration_2
 
 screen_width, screen_height = pyautogui.size()
 
@@ -37,7 +37,7 @@ class MyWindow(QMainWindow):
         self.w = None
 
     def load_next(self):
-        self.w = mode_calibration_1.widget_0()
+        self.w = mode_calibration_2.widget_1()
         self.w.showFullScreen()
 
 if __name__ == "__main__":
