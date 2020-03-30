@@ -169,7 +169,7 @@ class Exam(QWidget, form_class):
         self.fps = 24
 
         self.frame = QLabel(self)
-        self.frame.setGeometry(1380, 17, 448, 326)
+        self.frame.setGeometry(1380, 17, 448, 326)      #(캠위치 x좌표, 캠위치 y좌표, 캠크기 x축, 캠크기 y축)
         self.frame.setScaledContents(True)
 
         self.start()
@@ -187,6 +187,7 @@ class Exam(QWidget, form_class):
         img = QImage(cam, cam.shape[1], cam.shape[0], QImage.Format_RGB888)
         pix = QPixmap.fromImage(img)
         self.frame.setPixmap(pix)
+        self.frame.setGeometry(self.textEdit.geometry())        #(캠위치 x좌표, 캠위치 y좌표, 캠크기 x축, 캠크기 y축)
 
     def save_narrator(self, msg, file_name):
         engine = gTTS(text=msg, lang='ko')
@@ -202,12 +203,12 @@ class Exam(QWidget, form_class):
 
 def main():
     w = Exam()
-    w.Maximumshow()
+    w.ShowFullscreen()
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     w = Exam()
-    w.showMaximized()
+    w.show()
     sys.exit(app.exec_())
     cv2.destroyAllWindows()
