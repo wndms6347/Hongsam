@@ -5,13 +5,18 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import mode_calibration
 import mode_tracking
+import Gallery
 
 class MyWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Main")
-        self.setGeometry(300, 300, 400, 300)
+        self.setGeometry(300, 300, 700, 300)
+
+        btn_gallery = QPushButton("Gallery",self)
+        btn_gallery.setGeometry(420,10,185,280)
+        btn_gallery.clicked.connect(self.gallery_clicked)
 
         btn_start = QPushButton("시작", self)
         btn_start.setGeometry(10,10,185,280)
@@ -21,6 +26,10 @@ class MyWindow(QMainWindow):
         btn_calibration.setGeometry(210, 10, 185, 280)
         btn_calibration.clicked.connect(self.calibration_clicked)
         btn_calibration.clicked.connect(QCoreApplication.instance().quit)
+
+    def gallery_clicked(self):
+        self.hide()
+        return Gallery.gallery()
 
     def calibration_clicked(self):
         self.hide()
