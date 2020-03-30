@@ -5,6 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5 import uic
 from playsound import playsound
 from gtts import gTTS
+import threading
 
 form_class = uic.loadUiType('Ui.ui')[0]
 cam = True      #캠 on/off
@@ -102,32 +103,44 @@ class Exam(QWidget, form_class):
         if eye:
             if button.objectName() == "bed_btn":
                 self.bed_widget.show()
+                self.frame.hide()
             elif button.objectName() == "eat_btn":
                 self.eat_widget.show()
+                self.frame.hide()
             elif button.objectName() == "light_btn":
                 self.light_widget.show()
+                self.frame.hide()
             elif button.objectName() == "toilet_btn":
                 self.toilet_widget.show()
+                self.frame.hide()
             elif button.objectName() == "window_btn":
                 self.window_widget.show()
+                self.frame.hide()
             elif button.objectName() == "temperature_btn":
                 self.temperature_widget.show()
+                self.frame.hide()
 
     def back_btn_clicked(self, state, button):
         now_button = button.objectName()
 
         if now_button == "bed_back_btn":
             self.bed_widget.hide()
+            self.cam_man()
         elif now_button == "eat_back_btn":
             self.eat_widget.hide()
+            self.cam_man()
         elif now_button == "light_back_btn":
             self.light_widget.hide()
+            self.cam_man()
         elif now_button == "toilet_back_btn":
             self.toilet_widget.hide()
+            self.cam_man()
         elif now_button == "window_back_btn":
             self.window_widget.hide()
+            self.cam_man()
         elif now_button == "temperature_back_btn":
             self.temperature_widget.hide()
+            self.cam_man()
 
     def btn_clicked(self, state, button):
         if eye:
@@ -138,19 +151,34 @@ class Exam(QWidget, form_class):
             print(now_text)
             self.textEdit.setText(exist_line_text + now_text + "\n")
             self.play_narrator(button)
+            '''thread_sound = threading.Thread(target=play_narrator, args=button)  # 쓰레딩
+            thread_sound.start()'''
 
             if now_button == "bed_up_btn" or now_button == "bed_down_btn":
                 self.bed_widget.hide()
+                self.cam_man()
             elif now_button == "full_btn" or now_button == "hungry_btn":
                 self.eat_widget.hide()
+                self.cam_man()
             elif now_button == "light_on_btn" or now_button == "light_off_btn":
                 self.light_widget.hide()
+                self.cam_man()
             elif now_button == "big_btn" or now_button == "small_btn":
                 self.toilet_widget.hide()
+                self.cam_man()
             elif now_button == "window_open_btn" or now_button == "window_close_btn":
                 self.window_widget.hide()
+                self.cam_man()
             elif now_button == "cold_btn" or now_button == "hot_btn":
                 self.temperature_widget.hide()
+                self.cam_man()
+
+    def cam_man(self):
+        global cam
+        if cam:
+            self.frame.show()
+        else:
+            self.frame.hide()
 
     def btn_clear(self):
         self.textEdit.clear()
@@ -199,7 +227,6 @@ class Exam(QWidget, form_class):
         print(now_name)
         playsound("./audio./" + now_name + "_audio.mp3")
         print('파일명 : [' + now_name + '_audio.mp3]')
-
 
 def main():
     w = Exam()
