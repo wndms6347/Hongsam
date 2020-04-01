@@ -5,6 +5,9 @@ import dlib
 from .eye import Eye
 from .calibration import Calibration
 
+limit_value = [[0.55, 0.45, 0.35], [0.65, 0.75, 0.85], [0.45, 0.35, 0.25], [0.55, 0.65, 0.75]]
+
+
 
 class GazeTracking(object):
     """
@@ -67,22 +70,15 @@ class GazeTracking(object):
         self.frame = frame
         self._analyze()
 
-    def change_limit(self, sensitibity):
-        if sensitibity is 0:
-            self.limit_down = 0.65
-            self.limit_up = 0.55
-            self.limit_left = 0.45
-            self.limit_right = 0.55
-        elif sensitibity is 1:
-            self.limit_down = 0.75
-            self.limit_up = 0.45
-            self.limit_left = 0.35
-            self.limit_right = 0.65
-        elif sensitibity is 2:
-            self.limit_down = 0.85
-            self.limit_up = 0.35
-            self.limit_left = 0.25
-            self.limit_right = 0.75
+    def change_limit(self, direction, sensitibity):
+        if direction is 0:
+            self.limit_up = limit_value[0][sensitibity]
+        elif direction is 1:
+            self.limit_down = limit_value[1][sensitibity]
+        elif direction is 2:
+            self.limit_left = limit_value[2][sensitibity]
+        elif direction is 3:
+            self.limit_right = limit_value[3][sensitibity]
 
     def pupil_right_coords(self):
         """Returns the coordinates of the left pupil"""

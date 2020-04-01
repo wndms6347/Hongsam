@@ -44,7 +44,7 @@ class widget_1(QWidget):
         textLabel.move(350, 200)
         textLabel.setStyleSheet("font: 25pt Comic Sans MS")
 
-        textLabel1 = QLabel("2. 음성이 재생됩니다.", self)
+        textLabel1 = QLabel("2. 좌측 상단에 현재 상태가 뜹니다.", self)
         textLabel1.resize(1800, 80)
         textLabel1.move(350, 300)
         textLabel1.setStyleSheet("font: 25pt Comic Sans MS")
@@ -59,12 +59,12 @@ class widget_1(QWidget):
         textLabel2.move(350, 400)
         textLabel2.setStyleSheet("font: 25pt Comic Sans MS")
 
-        textLabel2 = QLabel("(민감도는 키보드 <-, -> 버튼으로 조정합니다)", self)
+        textLabel2 = QLabel("(민감도는 키보드 상,하,좌,우 버튼으로 조정합니다)", self)
         textLabel2.resize(1800, 80)
         textLabel2.move(350, 450)
         textLabel2.setStyleSheet("font: 25pt Comic Sans MS")
 
-        textLabel2 = QLabel("3. 스페이스바를 누르면 음성이 다시 재생됩니다.", self)
+        textLabel2 = QLabel("3. 조정을 끝내고, 'n' 키를 누르면 다음 화면으로 넘어갑니다.", self)
         textLabel2.resize(1800, 80)
         textLabel2.move(350, 550)
         textLabel2.setStyleSheet("font: 25pt Comic Sans MS")
@@ -77,7 +77,10 @@ class widget_1(QWidget):
         self.w = None
 
     def next_clicked(self):
-        self.close()
+        self.hide()
+        self.w = mode_calibration_start.widget_3()
+        self.w.hide()
+        mode_calibration_start.pass_form(self)
         return mode_calibration_start.calibration()
 
 if __name__ == "__main__":
