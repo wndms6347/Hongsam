@@ -90,7 +90,7 @@ class Exam(QWidget, form_class):
         self.window_btn.clicked.connect(lambda state, button=self.window_btn: self.open_widget(state, button))
         self.temperature_btn.clicked.connect(lambda state, button=self.temperature_btn: self.open_widget(state, button))
 
-    def eye_clicked(self):
+    def eye_clicked(self):      #캠버튼 클릭
         global eye
         if self.eye_btn.isChecked():
             eye = False
@@ -99,7 +99,7 @@ class Exam(QWidget, form_class):
             eye = True
             print(eye)
 
-    def open_widget(self, state, button):
+    def open_widget(self, state, button):       #위젯필요한 버튼 클릭
         if eye:
             if button.objectName() == "bed_btn":
                 self.bed_widget.show()
@@ -120,7 +120,7 @@ class Exam(QWidget, form_class):
                 self.temperature_widget.show()
                 self.frame.hide()
 
-    def back_btn_clicked(self, state, button):
+    def back_btn_clicked(self, state, button):      #뒤로가기 버튼 클릭
         now_button = button.objectName()
 
         if now_button == "bed_back_btn":
@@ -142,7 +142,7 @@ class Exam(QWidget, form_class):
             self.temperature_widget.hide()
             self.cam_man()
 
-    def btn_clicked(self, state, button):
+    def btn_clicked(self, state, button):       #일반 버튼 클릭
         if eye:
             exist_line_text = self.textEdit.toPlainText()
             now_text = button.text()
@@ -173,17 +173,17 @@ class Exam(QWidget, form_class):
                 self.temperature_widget.hide()
                 self.cam_man()
 
-    def cam_man(self):
+    def cam_man(self):          #뒤로가기 버튼클릭시 사용
         global cam
         if cam:
             self.frame.show()
         else:
             self.frame.hide()
 
-    def btn_clear(self):
+    def btn_clear(self):        #텍스트에딧 초기화
         self.textEdit.clear()
 
-    def cam_clicked(self):
+    def cam_clicked(self):      #캠버튼 클릭
         global cam
         if (cam is True):
             self.frame.hide()
@@ -192,7 +192,7 @@ class Exam(QWidget, form_class):
             self.frame.show()
             cam = True
 
-    def initUI(self):
+    def initUI(self):       #초기화
         self.cpt = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.fps = 24
 
@@ -203,26 +203,26 @@ class Exam(QWidget, form_class):
         self.start()
         self.show()
 
-    def start(self):
+    def start(self):        #타이머
         self.timer = QTimer()
-        self.timer.timeout.connect(self.nextFrameSlot)
+        self.timer.timeout.connect(self.nextFrameSlot)      #타이머 종료시 다음 프레임
         self.timer.start(1000 / self.fps)
 
-    def nextFrameSlot(self):
+    def nextFrameSlot(self):        #다음프레임
         _, cam = self.cpt.read()
         cam = cv2.cvtColor(cam, cv2.COLOR_BGR2RGB)
         cam = cv2.flip(cam, 1)
         img = QImage(cam, cam.shape[1], cam.shape[0], QImage.Format_RGB888)
         pix = QPixmap.fromImage(img)
         self.frame.setPixmap(pix)
-        self.frame.setGeometry(self.textEdit.geometry())        #(캠위치 x좌표, 캠위치 y좌표, 캠크기 x축, 캠크기 y축)
+        self.frame.setGeometry(self.textEdit.geometry())        #(캠위치 x좌표, 캠위치 y좌표, 캠크기 x축, 캠크기 y축) 텍스트에딧 자리로 캠창 이동
 
-    def save_narrator(self, msg, file_name):
+    def save_narrator(self, msg, file_name):        #음성파일 저장
         engine = gTTS(text=msg, lang='ko')
         engine.save("./audio./" + file_name + "_audio.mp3")
         print(msg + '의 음성이 [' + file_name + '_audio.mp3] 파일로 저장 되었습니다.')
 
-    def play_narrator(self, button):
+    def play_narrator(self, button):        #음성파일 실행
         now_name = button.objectName()
         print(now_name)
         playsound("./audio./" + now_name + "_audio.mp3")
