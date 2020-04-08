@@ -6,6 +6,7 @@ import mode_calibration
 import pyautogui
 import cv2
 import mode_calibration_start
+import test
 
 screen_width, screen_height = pyautogui.size()
 
@@ -83,7 +84,20 @@ class widget_2(QWidget):
         self.close()
 
     def play_clicked(self):
-        print('b')
+
+        mode_calibration_start.break_calibration()
+
+        # 민감도 파일 저장
+        f = open("sensitibity.txt", 'w')
+        for i in range(0, 4):
+            data = "%d\n" % self.gaze[i]
+            f.write(data)
+        f.close()
+
+        self.close()
+        self.w = test.Exam()
+        self.w.showFullScreen()
+
 
     def pass_value(self, tmp):
         self.gaze = tmp

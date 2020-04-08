@@ -51,8 +51,9 @@ parent_form = 1
 width = 800
 height = 600
 
-play = False
+webCam = 1
 init = True
+play = True
 
 # 음성 출력 함수
 def play_narrator(msg, file_name):
@@ -60,37 +61,9 @@ def play_narrator(msg, file_name):
     print(msg + '가 출력됩니다. - 파일명 : [' + file_name + '_audio.mp3]')
 
 
-# 타이머 함수
-def start_timer():
-    global count
-    global nowOrder
-
-    print(count)
-    timer = threading.Timer(1, start_timer)
-    count += 1
-    idx = 0
-    col = 0
-    if nowOrder is 9:
-        print('initialize completed')
-        timer.cancel()
-        return
-
-
-    if count % 3 is 0:
-        play_narrator("효과음", "ding")
-        nowOrder += 1
-        print('stop')
-        timer.cancel()
-        time.sleep(1)
-        start_timer()
-
-
-    timer.start()
-
-
-
 def calibration():
-
+    global webCam
+    global play
     global sensitivity
     global position_s
     global direction
@@ -104,19 +77,25 @@ def calibration():
     global set_sen_r
     global set_sen_u
 
+
     webCam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 
     global h_ratio, h_count, v_ratio, v_count
 
     while True:
+
+
+        if play is False:
+            break
+
         # _, frame = webCam.read()
 
 
         _, camFrame = webCam.read()
         camFrame = cv2.flip(camFrame, 1)
         camFrame = cv2.resize(camFrame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
-        camFrame = camFrame[150:450, 200:600]
+        camFrame = camFrame[150:550, 200:600]
         camFrame = cv2.resize(camFrame, dsize=(800, 600), interpolation=cv2.INTER_AREA)
 
         # We send this frame to GazeTracking to analyze it
@@ -278,14 +257,19 @@ def calibration():
         cv2.imshow("calibration", camFrame)
 
 
-
-
         if cv2.waitKey(1) == 27:
             break
+
+
 def pass_form(form):
     global parent_form
-
     parent_form = form
+
+def break_calibration():
+    global play
+    global webCam
+    webCam.release()
+    play = False
 
 class widget_3(QWidget):
     def __init__(self):
