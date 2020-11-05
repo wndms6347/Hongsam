@@ -8,4 +8,4 @@ Hongsam_capstone_project\
 - 최재훈 (fofo0623)
 - 박동준 (dong911)
 - 이상혁 (LeeSh3445)
-- 김애리 (..)
+- 김애리 (GHkar)
